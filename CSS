@@ -1,0 +1,112 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(ast.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main {
+    position: static;
+}
+
+.left {
+    position: sticky;
+    display: inline-block;
+    display: inline-block;
+    position: absolute;
+    left: 45px;
+    top: 20px;
+    color: aliceblue;
+    /* border: 2px solid red; */
+}
+
+.left img {
+    width: 120px;
+    filter: invert(100%);
+}
+
+.left div {
+    text-align: center;
+}
+
+.mid {
+    display: block;
+    width: 40%;
+    margin: 40px auto;
+    /* border: 2px solid red; */
+}
+
+.right {
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    color: aliceblue;
+    /* border: 2px solid red; */
+}
+
+.right img {
+    width: 50px;
+    filter: invert(100%);
+}
+
+.right span {
+    text-align: center;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    color: rgb(149, 153, 157);
+    text-decoration: none;
+    padding: 25px;
+}
+
+.nav li a:hover {
+    text-decoration: underline;
+    color: rgb(82, 80, 80);
+}
+
+.container {
+    margin: 70px 100px;
+    padding: 50px;
+    width: 20%;
+}
+
+.form {
+    padding: 5px;
+}
+
+.form input {
+    border: none;
+    color: white;
+    text-align: center;
+    display: block;
+    width: 200px;
+    padding: 20px;
+    border-bottom: 2px solid white;
+    margin: 5px auto;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    display: block;
+    width: 40%;
+    margin: 10px 26px;
+    border: 2px solid rgb(125, 122, 122);
+    border-radius: 10px;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(37, 37, 37);
+}
+.container h1 {
+    color: white;
+    text-align: center;
+}
