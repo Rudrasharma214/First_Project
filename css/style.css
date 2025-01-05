@@ -19,10 +19,11 @@ body {
 .right {
     width: 75vw;
     margin: 16px 0;
+    position: relative;
     
 }
 
-.home {}
+
 
 .home ul li {
     display: flex;
@@ -79,8 +80,7 @@ body {
 
 
 .spotifyplaylist {
-    padding: 15px;
-    
+    padding: 15px;    
 }
 
 .cardcontainer {
@@ -90,6 +90,7 @@ body {
     flex-wrap: wrap;
     max-height: 100vh;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .card {
@@ -124,4 +125,18 @@ body {
     position: absolute;
     top: 130px;
     right: 20px;
+}
+.bar{
+    position: absolute;
+    object-fit: contain;
+    bottom:0;
+    background-color: blueviolet;
+    width: 100%;
+    padding: 12px;
+}
+
+.songbutton{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
 }
