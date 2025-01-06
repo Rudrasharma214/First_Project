@@ -4,26 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
-    <script src="script.js"></script>
-    <title>Spotify clone</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
+    
+    <title>Spotify - Web Player: Music for everyone</title>
 </head>
 
 <body>
+    <script src="script.js"></script>
     <div class="container flex bg-black">
         <div class="left ">
             <div class="home bg-grey rounded m-1 p-1">
-                <div class="logo"><img class="invert" src="logo.svg" alt="logo"></div>
+                <div class="logo"><img class="invert" src="img/logo.svg" alt="logo"></div>
                 <ul>
-                    <li><img class="invert" src="home.svg" alt="home">Home</li>
-                    <li><img class="invert" src="search.svg" alt="search">Search</li>
+                    <li><img class="invert" src="img/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="img/search.svg" alt="search">Search</li>
                 </ul>
             </div>
             <div class="library bg-grey rounded m-1 p-1">
                 <div class="heading">
-                    <img class="invert" src="playlist.svg" alt="">
+                    <img class="invert" src="img/playlist.svg" alt="">
                     <h2>Your library</h2>
+                </div>
+                <div class="songlist">
+                    <ul>
+                        
+                    </ul>
                 </div>
                 <div class="footer">
                     <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
@@ -80,7 +86,7 @@
 
                     <div class="card ">
                         <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
                                     stroke-linejoin="round" />
@@ -90,128 +96,18 @@
                         <h2>Happy Hits!</h2>
                         <p>Hits to boost your mood and fill with happiness!</p>
                     </div>
-                    <div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
+                </div>
+                <div class="bar">
+                    <div class="songinfo">
+
                     </div>
-                    <div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
-                    </div><div class="card ">
-                        <div class="play">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <img src="https://i.scdn.co/image/ab67706f00000002b55b6074da1d43715fc16d6d" alt="">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill with happiness!</p>
+                    <div class="songbutton">
+                        <img src="img/prev.svg" alt="">
+                        <img src="img/play.svg" alt="">
+                        <img src="img/next.svg" alt="">
+                    </div>
+                    <div class="songtime">
+
                     </div>
                 </div>
             </div>
