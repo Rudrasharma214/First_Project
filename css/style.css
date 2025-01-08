@@ -129,10 +129,14 @@ body {
 .bar{
     position: fixed;
     object-fit: contain;
-    bottom:0;
-    background-color: blueviolet;
+    bottom:15px;
+    background-color: #cdcdcd;
     width: 90%;
+    height: 39px;
     padding: 12px;
+    width: 70vw;
+    filter: invert(1);
+    border-radius: 10px;
 }
 
 .songbutton{
@@ -176,4 +180,79 @@ body {
 
 .info {
     word-break: break-all;
+}
+
+.seekbar{
+    height: 5px;
+    width: 96%;
+    background: black;
+    position: absolute;
+    bottom: 5px;
+    margin: 6px;
+    cursor: pointer;
+}
+.circle{
+    position: relative;
+    bottom: 4px;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background-color: black;
+    left: 0%;
+    transition: 0.3s;
+}
+
+.songbutton img{
+    cursor: pointer;
+}
+
+.abovebar{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 200px;
+}
+
+.songinfo , .songtime{
+    color: black;
+}
+.hamburger {
+    /* filter: invert(1); */
+    display: none;
+    cursor: pointer;
+}
+
+.hamburgercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+
+
+
+@media (max-width: 1200px) {
+    .left {
+        position: absolute;
+        background-color: red;
+        left: -130%;
+        transition: all .3s;
+        z-index: 1;
+        width: 373px;
+        padding: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: calc(100vw - 75px); 
+    }
+
+
+
 }
