@@ -1,6 +1,6 @@
 console.log("Let's write JavaScript")
 let currentsong = new Audio();
-
+let songs;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -21,11 +21,9 @@ function secondsToMinutesSeconds(seconds) {
 async function getsongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/")
     let response = await a.text()
-    console.log(response)
     let div = document.createElement("div")
     div.innerHTML = response;
     let as = div.getElementsByTagName("a")
-    console.log(as)
 
     let songs = []
     for (let index = 0; index < as.length; index++) {
@@ -37,7 +35,7 @@ async function getsongs() {
 
     return songs
 }
-const playmusic = (track, pause=false)=>{
+const playmusic = (track, pause = false) => {
     // let audio = new Audio("/songs/" + track)
     currentsong.src = "/songs/" + track
     if (!pause) {
@@ -48,9 +46,8 @@ const playmusic = (track, pause=false)=>{
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 async function main() {
-
-    
-    let songs = await getsongs()
+    // Get the list of all the songs
+    songs = await getsongs()
 
     playmusic(songs[0], true)
 
@@ -61,7 +58,7 @@ async function main() {
         songul.innerHTML = songul.innerHTML + `<li>
                             <img class="invert" src="img/music.svg" alt="">
                             <div class="info">
-                                <div> ${song.replaceAll("%20"," ")} </div>
+                                <div> ${song.replaceAll("%20", " ")} </div>
                                 <div>Rudra</div>
                             </div>
                             <span class="p1" >Play Now</span>
@@ -69,51 +66,74 @@ async function main() {
                         </li>`
     }
 
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(function(e){
-        e.addEventListener("click", element=> {
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(function (e) {
+        e.addEventListener("click", element => {
             console.log(e.querySelector(".info").firstElementChild.innerHTML)
             playmusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     })
-
-    play.addEventListener("click", ()=>{
-        if(currentsong.paused){
+    // Attach an event listener to play, next and previous
+    play.addEventListener("click", () => {
+        if (currentsong.paused) {
             currentsong.play()
             play.src = "img/pause.svg"
         }
-        else{
+        else {
             currentsong.pause()
             play.src = "img/plays.svg"
         }
     })
+    prev.addEventListener("click", ()=>{
+        currentsong.pause()
+        // console.log("Previous clicked")
+        let index = songs.indexOf(currentsong.src.split("/").slice(-1)[0])
+        if ((index - 1) >= 0) {
+            playmusic(songs[index - 1])
+        }
+    })
+    next.addEventListener("click", ()=>{
+        currentsong.pause()
+        // console.log("Next clicked")
+        let index = songs.indexOf(currentsong.src.split("/").slice(-1)[0])
+        if ((index + 1) < songs.length) {
+            playmusic(songs[index + 1])
+        }
+    })
+
+     // Add an event to volume
+     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        console.log("Setting volume to", e.target.value, "/ 100")
+        currentsong.volume = parseInt(e.target.value) / 100
+        if (currentsong.volume >0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("mute.svg", "volume.svg")
+        }
+    })
 
 
-
+    // Listen for timeupdate event
     currentsong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentsong.currentTime)} / ${secondsToMinutesSeconds(currentsong.duration)}`
         document.querySelector(".circle").style.left = (currentsong.currentTime / currentsong.duration) * 100 + "%";
     })
 
-
-    document.querySelector(".seekbar").addEventListener("click", e=>{
+    // Add an event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
-        currentsong.currentTime = ((currentsong.duration) * percent ) / 100
+        currentsong.currentTime = ((currentsong.duration) * percent) / 100
 
     })
 
-
-    document.querySelector(".hamburger").addEventListener("click", ()=>{
+    // Add an event listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0"
     })
-    // var audio = new Audio(songs[2])
-    // // audio.play()
 
-    // audio.addEventListener("loadeddata", () => {
-    //     let duration = audio.duration; //hold the duration of song in seconds
-    //     console.log(duration)
+    // Add an event listener for close button
+    document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "-130%"
+    })
 
-    // })
 }
 
 main()
