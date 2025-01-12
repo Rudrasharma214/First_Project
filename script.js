@@ -24,7 +24,7 @@ async function getsongs(folder) {
     console.log(folder)
     currfolder = folder;
    // let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
-   let a = await fetch(`/${folder}/`)
+   let a = await fetch(`/${folder}/bhajan`)
     if (!a.ok) {
         console.error(`Failed to fetch folder contents: ${a.status}`);
         return [];
