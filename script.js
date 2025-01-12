@@ -25,6 +25,11 @@ async function getsongs(folder) {
     currfolder = folder;
    // let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
    let a = await fetch(`/${folder}/`)
+    if (!a.ok) {
+        console.error(`Failed to fetch folder contents: ${a.status}`);
+        return [];
+    }
+
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -63,7 +68,9 @@ async function getsongs(folder) {
     return songs
 }
 const playmusic = (track, pause = false) => {
-    currentsong.src = `/${currfolder}/` + track
+    
+    currentsong.src = `/songs/${currfolder}/` + track;
+    // currentsong.src = `/${currfolder}/` + track
     if (!pause) {
         currentsong.play()
         play.src = "img/pause.svg"
