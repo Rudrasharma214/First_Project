@@ -24,7 +24,7 @@ async function getsongs(folder) {
     // console.log(folder)
     currfolder = folder;
    // let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
-   let a = await fetch(`/${folder}/`)
+   let a = await fetch(`/${folder}/info.json`)
     if (!a.ok) {
         console.error(`Failed to fetch folder contents: ${a.status}`);
         return [];
@@ -127,7 +127,7 @@ async function displayAlbums() {
 
 async function main() {
     // Get the list of all the songs
-    await getsongs("songs/ncs")
+    await getsongs("songs")
 
     playmusic(songs[0], true)
 
