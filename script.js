@@ -21,15 +21,10 @@ function secondsToMinutesSeconds(seconds) {
 
 
 async function getsongs(folder) {
-    console.log(folder)
+    // console.log(folder)
     currfolder = folder;
-   // let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
-   let a = await fetch(`/${folder}/bhajan`)
-    if (!a.ok) {
-        console.error(`Failed to fetch folder contents: ${a.status}`);
-        return [];
-    }
-
+    let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
+    // let a = await fetch(`/${folder}/`)
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -68,9 +63,7 @@ async function getsongs(folder) {
     return songs
 }
 const playmusic = (track, pause = false) => {
-    
-    currentsong.src = `/songs/${currfolder}/` + track;
-    // currentsong.src = `/${currfolder}/` + track
+    currentsong.src = `/${currfolder}/` + track
     if (!pause) {
         currentsong.play()
         play.src = "img/pause.svg"
@@ -80,8 +73,8 @@ const playmusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-   // let a = await fetch(`http://127.0.0.1:5500/songs`)
-    let a = await fetch(`/songs/`)
+    let a = await fetch(`http://127.0.0.1:5500/songs`)
+    // let a = await fetch(`/songs/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -94,8 +87,8 @@ async function displayAlbums() {
             let folder = e.href.split("/").slice(-1)[0]
 
             // Get the metadata of the folder
-          //  let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
-            let a = await fetch(`/songs/${folder}/info.json`)
+            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
+            // let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json(); 
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
             <div class="play">
@@ -127,7 +120,7 @@ async function displayAlbums() {
 
 async function main() {
     // Get the list of all the songs
-    await getsongs("/songs/")
+    await getsongs("songs/ncs")
 
     playmusic(songs[0], true)
 
